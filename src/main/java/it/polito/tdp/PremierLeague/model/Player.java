@@ -3,13 +3,23 @@ package it.polito.tdp.PremierLeague.model;
 public class Player {
 	Integer playerID;
 	String name;
+	double deltaEff;
 	
 	public Player(Integer playerID, String name) {
 		super();
 		this.playerID = playerID;
 		this.name = name;
+		this.deltaEff = 0;
 	}
 	
+	public double getDeltaEff() {
+		return deltaEff;
+	}
+
+	public void setDeltaEff(double deltaEff) {
+		this.deltaEff = deltaEff;
+	}
+
 	public Integer getPlayerID() {
 		return playerID;
 	}
@@ -50,7 +60,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return playerID + " - " + name;
+		return playerID + " - " + name + ",delta efficienza = " + deltaEff;
 	}
 	
 	

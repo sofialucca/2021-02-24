@@ -41,7 +41,7 @@
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnGiocatoreMigliore" mnemonicParsing="false" onAction="#doGiocatoreMigliore" prefWidth="200.0" text="Giocatore Migliore" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="btnGiocatoreMigliore" disable="true" mnemonicParsing="false" onAction="#doGiocatoreMigliore" prefWidth="200.0" text="Giocatore Migliore" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin>
@@ -65,7 +65,7 @@
                   <TextField fx:id="txtN" maxWidth="320.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <TextArea fx:id="txtResult" prefHeight="436.0" prefWidth="428.0">
+            <TextArea fx:id="txtResult" editable="false" prefHeight="436.0" prefWidth="428.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
