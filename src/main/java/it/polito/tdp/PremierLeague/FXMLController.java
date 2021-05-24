@@ -58,8 +58,10 @@ public class FXMLController {
     	
     	txtResult.appendText("Grafo creato\n");
     	txtResult.appendText("# VERTICI:" + model.getVertexSet().size() + "\n");
-    	txtResult.appendText("#ARCHI:" + model.getEdgeSet().size());
+    	txtResult.appendText("# ARCHI:" + model.getEdgeSet().size());
     	this.btnGiocatoreMigliore.setDisable(false);
+    	this.txtN.setDisable(false);
+    	this.btnSimula.setDisable(false);
     }
 
     @FXML
@@ -74,10 +76,37 @@ public class FXMLController {
     
     @FXML
     void doSimula(ActionEvent event) {
+    	
+    	txtResult.clear();
+    	Match m = this.cmbMatch.getValue();
+    	if(!isValid()) {
+    		return;
+    	}
+    	
+    	int N = Integer.parseInt(txtN.getText());
+    	model.setSim(m, N);
+    	txtResult.appendText("GOAL:\n");
+    	txtResult.appendText(model.getGolHome()+" - "+model.getGolAway()+"\n\n");
+    	txtResult.appendText("ESUPLSIONI:\n");
+    	txtResult.appendText(model.getEspulsioniHome()+" - "+model.getEspulsioniAway());
 
     }
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    private boolean isValid() {
+		if(this.txtN.getText() == null) {
+			txtResult.appendText("ERRORE: inserire un numero per la simulazione");
+			return false;
+		}
+		try {
+			Integer.parseInt(this.txtN.getText());
+		}catch(NumberFormatException nfe){
+			txtResult.appendText("ERRORE: inserire un numero e non una stringa per la simulazione");
+			return false;
+		}
+		return true;
+	}
+
+	@FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert btnCreaGrafo != null : "fx:id=\"btnCreaGrafo\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnGiocatoreMigliore != null : "fx:id=\"btnGiocatoreMigliore\" was not injected: check your FXML file 'Scene.fxml'.";

@@ -46,7 +46,7 @@
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnSimula" mnemonicParsing="false" onAction="#doSimula" prefWidth="200.0" text="Simula" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Button fx:id="btnSimula" disable="true" mnemonicParsing="false" onAction="#doSimula" prefWidth="200.0" text="Simula" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin>
@@ -62,7 +62,7 @@
                      </padding>
                   </Label>
                   <ComboBox fx:id="cmbMatch" prefHeight="27.0" prefWidth="320.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="txtN" maxWidth="320.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtN" disable="true" maxWidth="320.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <TextArea fx:id="txtResult" editable="false" prefHeight="436.0" prefWidth="428.0">

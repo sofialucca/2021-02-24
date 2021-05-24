@@ -60,7 +60,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return playerID + " - " + name + ",delta efficienza = " + deltaEff;
+		return playerID + " - " + name + ",delta efficienza = " + String.format("%.5g%n",this.deltaEff);
 	}
 	
 	

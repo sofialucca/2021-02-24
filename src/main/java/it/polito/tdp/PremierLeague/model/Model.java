@@ -17,9 +17,11 @@ public class Model {
 	PremierLeagueDAO dao;
 	Graph<Player, DefaultWeightedEdge> grafo;
 	Map< Integer,Player> idMap;
+	Simulatore sim;
 	
 	public Model() {
 		dao = new PremierLeagueDAO();
+		sim = new Simulatore();
 	}
 	
 	public void creaGrafo(Match m) {
@@ -71,5 +73,30 @@ public class Model {
 	
 	public List<Match> listMatch(){
 		return dao.listAllMatches();
+	}
+	
+	public Team getTeamBestPlayer() {
+		return dao.getTeamPlayer(this.getBestPlayer());
+	}
+	
+	public void setSim(Match m, int N) {
+		sim.init(m, N, getTeamBestPlayer());
+		sim.run();
+	}
+	
+	public int getGolHome() {
+		return sim.getGolHome();
+	}
+	
+	public int getGolAway() {
+		return sim.getGolAway();
+	}
+	
+	public int getEspulsioniHome() {
+		return sim.getEspulsiHome();
+	}
+	
+	public int getEspulsioniAway() {
+		return sim.getEspulsiAway();
 	}
 }
